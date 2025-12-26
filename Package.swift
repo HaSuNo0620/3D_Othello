@@ -12,12 +12,25 @@ let package = Package(
         .library(
             name: "App",
             targets: ["App"]
+        .macOS(.v13),
+        .iOS(.v16)
+    ],
+    products: [
+        .library(
+            name: "CoreLogic",
+            targets: ["CoreLogic"]
         )
     ],
     targets: [
         .target(
             name: "App",
             path: "Sources/App"
+            name: "CoreLogic",
+            path: "Sources/CoreLogic"
+        ),
+        .testTarget(
+            name: "CoreLogicTests",
+            dependencies: ["CoreLogic"]
         )
     ]
 )
